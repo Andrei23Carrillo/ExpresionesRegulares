@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Expresiones Regulares</title>
+    <script>
+
+        function validacionVacio()
+        {
+            var expresNumero = new RegExp(/^\d{0,3},\d{3}.?\d{0,3}$/)
+            var expresColor = new RegExp(/^[0-1]{1}.\d{4},[0-1]{1}.\d{4},[0-1]{1}.\d{4},[0-1]{1}.\d{4}$/)
+            var Numero = document.getElementById("Numero").value
+            var Color = document.getElementById("Color").value
+
+            if (Numero === '' || Color === ''){
+                alert("Alguno de los campos esta vacio")
+
+            }
+            if (expresNumero.exec(Numero)){
+                document.getElementById("demo").innerHTML = "El numero " +  Numero + " Es valido con la expresion " + expresNumero ;
+            }
+            if (expresColor.exec(Color)){
+                            document.getElementById("demo2").innerHTML = Color + " es valido con la expresion " + expresColor;
+                        }
+            document.getElementById("ir").hidden= false;
+        }
+
+    </script>
+
+</head>
+
+<body name="body" text=white bgcolor="#b22222">
+<form>
+
+<h3 style="text-align: center;">Expresiones Regulares</h3>
+
+<p > Rellena el formulario</p>
+<p> Ingrese la combinacion de 4 colores en forma CYMK que es la combinacion de 4 numeros separados por,</p>
+    <p>Los numeros se eriben con 0 o 1 seguido de  un . y 4 numeros</p>
+    <input type="text" id="Color">
+<p>  Ingrese un Numero desde 1,000 hasta 999,999 puede incluir hasta 3 decimales despues del punto  </p>
+
+<input type="text" id="Numero" required>
+
+
+    <p id="demo"></p>
+    <p id="demo2"></p>
+
+<input type="button" value="Enviar" onclick="validacionVacio()" >
+    <a href="Datos%20Personales.html"><input type="button" id="ir" value="Datos personales" hidden ></a>
+
+</form>
+
+</body>
+
+</html>
